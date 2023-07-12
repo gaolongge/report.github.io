@@ -217,7 +217,9 @@
 						<!--	<img id="qrcode" src="" />-->
 						<div class="content1">
 							<!--<div class='imgContain'><img></div>-->
-							<div class="code"><canvas width="100" height="100"></canvas></div>
+							<div class="code">
+								<img id="qrcode" src="img/erweima.png" width="100" />
+							</div>
 						</div>
 						<div>802840919100260<span id="reportNo"></span></div>
 						<div>报告文号：<span id="textNo1"></span></div>
@@ -231,83 +233,6 @@
 
 		<script src="./js/jquery.min.js"></script>
 		<script src="./js/jquery.qrcode.min.js"></script>
-		<script>
-			window.onload = function() {
-				var httpRequest = new XMLHttpRequest();
-
-				console.log(window.location.href)
-
-				let id = ''
-				if (window.location.href.indexOf("#") > -1) {
-					id = getHashString("id");
-				} else {
-					id = getQueryString("id");
-				}
-
-				if (!id) {
-					return false;
-				}
-
-				//把链接转换为二维码
-				jQuery('.code').qrcode({
-					width: 100,
-					height: 100,
-					render: 'canvas', //设置渲染方式 table canvas
-					typeNumber: -1, //计算模式
-					correctLevel: 0, //纠错等级
-					background: '#ffffff', //背景颜色
-					foreground: '#000000', //前景颜色
-					text: 'http://ykcpa.top/qrcode-web/?id=' + id
-				});
-
-				httpRequest.open('GET', 'http://ykcpa.top/qrcode-server/web/reportEntity/queryById?id=' + id, true);
-				httpRequest.send();
-
-				httpRequest.onreadystatechange = function() {
-					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-						var json = JSON.parse(httpRequest.responseText);
-						document.getElementById('title').innerHTML = json.result.title
-						document.getElementById('textNo').innerHTML = json.result.textNo
-						document.getElementById('textNo1').innerHTML = json.result.textNo
-						document.getElementById('custmerName').innerHTML = json.result.custmerName
-						document.getElementById('enterTime').innerHTML = json.result.enterTime
-						document.getElementById('reportNo').innerHTML = json.result.reportNo
-
-						var accountants = json.result.accountants.split(",")
-						var node, textnode
-						for (var i = 0; i < accountants.length; i++) {
-							node = document.createElement("span")
-							node.className = "conName"
-							textnode = document.createTextNode(accountants[i]);
-							node.appendChild(textnode);
-							document.getElementById('accountants').appendChild(node);
-						}
-						var imgUrl = "http://qr.topscan.com/api.php?text=http://ykcpa.top/qrcode-web/?id=" + json.result
-							.id
-						document.getElementById("qrcode").src = imgUrl;
-					}
-				};
-
-
-
-				function getQueryString(name) {
-					var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-					var r = window.location.search.substr(1).match(reg);
-					if (r != null) {
-						return unescape(r[2]);
-					}
-					return null;
-				}
-
-				function getHashString(name) {
-					var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
-					var r = window.location.hash.substr(3).match(reg);
-					if (r != null) {
-						return unescape(r[2]);
-					}
-					return null;
-				}
-			}
-		</script>
+	
 	</body>
 </html>
