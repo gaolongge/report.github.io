@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="width=1000">
+		<title>事务所报告查询</title>
+		<style>
+			body {
+				margin: 0;
+			}
+
+			.pages {
+				background: #ECECEC;
+				width: 1000px;
+				margin: 0 auto;
+				padding-bottom: 20px;
+				margin-bottom: 20px;
+			}
+
+			.banner {
+				width: 100%;
+			}
+
+			.hander {
+				height: 46px;
+				line-height: 46px;
+				text-align: center;
+				background: #24A1E1;
+				margin-top: -4px;
+				font-size: 14px;
+				padding: 0 60px;
+			}
+
+			.hander .nav {
+				display: flex;
+				margin: 0;
+
+			}
+
+			.hander .item {
+				flex-grow: 1;
+			}
+
+			.hander .item a {
+				text-decoration: none;
+				color: #fff;
+			}
+
+			.hander .item a:hover {
+				border-bottom: 1px solid #24A1E1;
+				color: #eee;
+			}
+
+			.breadcrumb {
+				margin: 20px 60px;
+				font-size: 12px;
+				color: rgba(0, 0, 0, .45);
+				display: flex;
+			}
+
+			.breadcrumb .bread-item a {
+				color: rgba(0, 0, 0, .45);
+				font-size: 14px;
+				display: inline-block;
+				margin: 0 6px;
+				text-decoration: none;
+			}
+
+			.breadcrumb .bread-item a.active {
+				color: rgba(0, 0, 0, .65)
+			}
+
+			.content {
+				font-size: 14px;
+				color: rgba(0, 0, 0, .65);
+				background: #fff;
+				margin: 20px 30px;
+				padding: 10px 20px;
+				padding-bottom: 50px;
+			}
+
+			.content h2 {
+				text-align: center;
+				margin-bottom: 20px;
+				font-size: 26px;
+				color: #333;
+				padding: 0;
+				font-weight: 500;
+			}
+
+			.content .cont-wrap {
+				display: flex;
+			}
+
+			.content .con-item label {
+				display: block;
+				line-height: 36px;
+				margin: 16px 10px 0;
+				padding-left: 50px;
+			}
+
+			.content .con-item label .labelName {
+				display: inline-block;
+				width: 120px;
+			}
+
+			.content .con-item label .conName {
+				display: inline-block;
+				margin-left: 125px;
+			}
+
+			.content .con-item label span:nth-child(1),
+			.content .con-item label span:nth-child(2) {
+				margin-left: 0;
+			}
+
+			.content .qrcode {
+				margin-top: 60px;
+				text-align: center;
+				width: 360px;
+			}
+
+			.content .cont-wrap img {
+				width: 120px;
+				height: 120px;
+			}
+
+			.hr {
+				background: #026A9C;
+				height: 4px;
+				width: 1000px;
+				margin: 0 auto;
+			}
+
+			.copyright {
+				font-size: 14px;
+				margin-top: 6px;
+				color: #2c3e50;
+				width: 1000px;
+				margin: 0 auto;
+				margin-top: 6px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="pages">
+			<div class="banner">
+				<img src="./img/banner.jpg">
+			</div>
+			<div class="hander">
+				<div class="nav">
+					<div class="item home">
+						<a>首页</a>
+					</div>
+					<div class="item home">
+						<a>简介</a>
+					</div>
+					<div class="item home">
+						<a>动态聚焦</a>
+					</div>
+					<div class="item home">
+						<a>企业管理</a>
+					</div>
+					<div class="item home">
+						<a>专业服务</a>
+					</div>
+					<div class="item home">
+						<a>培训园地</a>
+					</div>
+					<div class="item home">
+						<a>考试之窗</a>
+					</div>
+					<div class="item home">
+						<a>人才中心</a>
+					</div>
+					<div class="item home">
+						<a>媒体关注</a>
+					</div>
+					<div class="item home">
+						<a>登录系统</a>
+					</div>
+				</div>
+			</div>
+			<div class="breadcrumb">
+				<div class="bread-item">
+					<a>首页</a>&gt;&gt;
+				</div>
+				<div class="bread-item">
+					<a>信息查询</a>&gt;&gt;
+				</div>
+				<div class="bread-item">
+					<a class="active">编码回执查询</a>
+				</div>
+			</div>
+			<div class="content">
+				<h2>会计师事务所报告查询页</h2>
+				<div class="cont-wrap">
+					<div class="con-item">
+						<label><span class="labelName">报告标题：</span><span class="conName" id="title">审计报告</span></label>
+						<label><span class="labelName">报告文号：</span><span class="conName" id="textNo">永坤审字［2021］第J-14363
+								号</span></label>
+						<label><span class="labelName">客户名称：</span><span class="conName"
+								id="custmerName">朔州市三众商贸有限公司</span></label>
+						<label><span class="labelName">录入时间：</span><span class="conName" id="enterTime">2020-04-10
+								10:43:21</span></label>
+						<label><span class="labelName">所属事务所：</span><span class="conName"
+								id="createTime">北京永坤会计师事务所（普通合伙）</span></label>
+						<label id="accountants"><span class="labelName">签字注册会计师：</span>
+						<span class="conName"
+								id="">陈敬杨，周岩</span>
+						</label>
+					</div>
+					<div class="con-item qrcode">
+						<!--	<img id="qrcode" src="" />-->
+						<div class="content1">
+							<!--<div class='imgContain'><img></div>-->
+							<div class="code"><canvas width="100" height="100"></canvas></div>
+						</div>
+						<div>802840919100260<span id="reportNo"></span></div>
+						<div>报告文号：<span id="textNo1"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hr"></div>
+		<div class="copyright"> 北京永坤会计师事务所 版权所有 </div>
+
+
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/jquery.qrcode.min.js"></script>
+		<script>
+			window.onload = function() {
+				var httpRequest = new XMLHttpRequest();
+
+				console.log(window.location.href)
+
+				let id = ''
+				if (window.location.href.indexOf("#") > -1) {
+					id = getHashString("id");
+				} else {
+					id = getQueryString("id");
+				}
+
+				if (!id) {
+					return false;
+				}
+
+				//把链接转换为二维码
+				jQuery('.code').qrcode({
+					width: 100,
+					height: 100,
+					render: 'canvas', //设置渲染方式 table canvas
+					typeNumber: -1, //计算模式
+					correctLevel: 0, //纠错等级
+					background: '#ffffff', //背景颜色
+					foreground: '#000000', //前景颜色
+					text: 'http://ykcpa.top/qrcode-web/?id=' + id
+				});
+
+				httpRequest.open('GET', 'http://ykcpa.top/qrcode-server/web/reportEntity/queryById?id=' + id, true);
+				httpRequest.send();
+
+				httpRequest.onreadystatechange = function() {
+					if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+						var json = JSON.parse(httpRequest.responseText);
+						document.getElementById('title').innerHTML = json.result.title
+						document.getElementById('textNo').innerHTML = json.result.textNo
+						document.getElementById('textNo1').innerHTML = json.result.textNo
+						document.getElementById('custmerName').innerHTML = json.result.custmerName
+						document.getElementById('enterTime').innerHTML = json.result.enterTime
+						document.getElementById('reportNo').innerHTML = json.result.reportNo
+
+						var accountants = json.result.accountants.split(",")
+						var node, textnode
+						for (var i = 0; i < accountants.length; i++) {
+							node = document.createElement("span")
+							node.className = "conName"
+							textnode = document.createTextNode(accountants[i]);
+							node.appendChild(textnode);
+							document.getElementById('accountants').appendChild(node);
+						}
+						var imgUrl = "http://qr.topscan.com/api.php?text=http://ykcpa.top/qrcode-web/?id=" + json.result
+							.id
+						document.getElementById("qrcode").src = imgUrl;
+					}
+				};
+
+
+
+				function getQueryString(name) {
+					var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+					var r = window.location.search.substr(1).match(reg);
+					if (r != null) {
+						return unescape(r[2]);
+					}
+					return null;
+				}
+
+				function getHashString(name) {
+					var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+					var r = window.location.hash.substr(3).match(reg);
+					if (r != null) {
+						return unescape(r[2]);
+					}
+					return null;
+				}
+			}
+		</script>
+	</body>
+</html>
